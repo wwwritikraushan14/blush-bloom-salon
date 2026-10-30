@@ -5,48 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blush &amp; Bloom — Salon &amp; Spa</title>
 <meta name="description" content="Blush & Bloom Salon & Spa — hair, skin, spa, bridal and nails. Book your appointment on WhatsApp.">
+<meta name="theme-color" content="#FFF9F5">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js" defer></script>
 </head>
 <body>
-<div class="demo-strip">Demo website crafted by Tarang Digital</div>
 
-<header class="site-head">
+<!-- Branded loading screen: fades away automatically (see app.js). A CSS fallback
+     hides it even if JavaScript fails, so it can never trap visitors. -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <span class="pre-mark">B</span>
+    <span class="pre-name">Blush <em>&amp;</em> Bloom</span>
+    <span class="pre-sub">Salon &amp; Spa</span>
+    <span class="pre-line"></span>
+  </div>
+</div>
+
+<header class="site-head" id="siteHead">
   <div class="wrap head-in">
     <a class="brand" href="#top"><span class="brand-mark">B</span><span class="brand-name">Blush <em>&amp;</em> Bloom<span class="brand-sub">Salon &amp; Spa</span></span></a>
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#prices">Prices</a>
       <a href="#gallery">Gallery</a>
       <a href="#bridal">Bridal</a>
       <a href="#visit">Visit Us</a>
     </nav>
-    <a class="btn btn-book" href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+    <a class="btn btn-book" data-wa href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main id="top">
 <section class="hero">
+  <div class="hero-blobs" aria-hidden="true"><span class="blob blob-1"></span><span class="blob blob-2"></span></div>
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="kicker">Salon &amp; Spa</p>
       <h1>Beauty that<br>blooms with you.</h1>
       <p class="hero-sub">Hair, skin, spa, bridal and nails — gentle care, premium products and artists who listen to what you want.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book Appointment</a>
+        <a class="btn btn-primary" data-wa href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book Appointment</a>
         <a class="btn btn-ghost" href="#services">Explore Services</a>
       </div>
       <p class="hero-hours">Open all days &middot; 10:00 AM &ndash; 8:00 PM</p>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hv-card"><span>Blush<br>&amp; Bloom</span><small>Salon &amp; Spa</small></div>
-      <div class="hv-chip chip-1">Hair</div>
-      <div class="hv-chip chip-2">Skin</div>
-      <div class="hv-chip chip-3">Spa</div>
-      <div class="hv-chip chip-4">Bridal</div>
+    <div class="hero-photo">
+      <!-- PHOTO: replace the placeholder below with your photograph, for example:
+           <img src="images/hero.jpg" alt="Blush & Bloom salon interior"> -->
+      <div class="photo-slot photo-hero">
+        <span class="photo-mark">B &amp; B</span>
+        <span class="photo-text">Your salon photograph here</span>
+      </div>
     </div>
   </div>
+  <a class="scroll-hint" href="#services" aria-label="Scroll down to services"><span class="scroll-line"></span><span>Scroll</span></a>
 </section>
 
 <section class="trustbar">
@@ -63,42 +78,90 @@
     <p class="kicker">What we do</p>
     <h2>Services made for you</h2>
     <div class="grid svc-grid">
-      <div class="svc">
-        <div class="svc-visual sv-hair"></div>
-        <h3>Hair Studio</h3>
-        <p>Cut, colour, keratin, smoothening and styling for every hair type.</p>
-        <p class="from">From &#8377;499</p>
-      </div>
-      <div class="svc">
-        <div class="svc-visual sv-skin"></div>
-        <h3>Skin &amp; Facials</h3>
-        <p>Clean-ups, signature facials, de-tan and glow rituals for radiant skin.</p>
-        <p class="from">From &#8377;799</p>
-      </div>
-      <div class="svc">
-        <div class="svc-visual sv-spa"></div>
-        <h3>Spa &amp; Massage</h3>
-        <p>Head massage, body spa and aromatherapy for deep, quiet rest.</p>
-        <p class="from">From &#8377;799</p>
-      </div>
-      <div class="svc">
-        <div class="svc-visual sv-bridal"></div>
-        <h3>Bridal &amp; Occasion</h3>
-        <p>Bridal packages, party makeup and draping for your special days.</p>
-        <p class="from">From &#8377;14,999</p>
-      </div>
-      <div class="svc">
-        <div class="svc-visual sv-nails"></div>
-        <h3>Nails</h3>
-        <p>Manicure, pedicure, extensions and nail art, finished with care.</p>
-        <p class="from">From &#8377;699</p>
-      </div>
-      <div class="svc">
-        <div class="svc-visual sv-wax"></div>
-        <h3>Waxing &amp; Threading</h3>
-        <p>Gentle waxing, threading and tinting with hygiene first.</p>
-        <p class="from">From &#8377;199</p>
-      </div>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/hair.jpg" alt="Hair Studio"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Hair Studio</h3>
+          <p>Cut, colour, keratin, smoothening and styling for every hair type.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;499</p>
+            <button class="svc-book" type="button" data-service="Hair Studio">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/skin.jpg" alt="Skin and facials"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Skin &amp; Facials</h3>
+          <p>Clean-ups, signature facials, de-tan and glow rituals for radiant skin.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;799</p>
+            <button class="svc-book" type="button" data-service="Skin &amp; Facials">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/spa.jpg" alt="Spa and massage"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Spa &amp; Massage</h3>
+          <p>Head massage, body spa and aromatherapy for deep, quiet rest.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;799</p>
+            <button class="svc-book" type="button" data-service="Spa &amp; Massage">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/bridal.jpg" alt="Bridal and occasion"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Bridal &amp; Occasion</h3>
+          <p>Bridal packages, party makeup and draping for your special days.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;14,999</p>
+            <button class="svc-book" type="button" data-service="Bridal &amp; Occasion">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/nails.jpg" alt="Nails"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Nails</h3>
+          <p>Manicure, pedicure, extensions and nail art, finished with care.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;699</p>
+            <button class="svc-book" type="button" data-service="Nails">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-visual">
+          <!-- PHOTO: replace the placeholder with <img src="images/waxing.jpg" alt="Waxing and threading"> -->
+          <div class="photo-slot"><span class="photo-text">Your photo here</span></div>
+        </div>
+        <div class="svc-body">
+          <h3>Waxing &amp; Threading</h3>
+          <p>Gentle waxing, threading and tinting with hygiene first.</p>
+          <div class="svc-foot">
+            <p class="from">From &#8377;199</p>
+            <button class="svc-book" type="button" data-service="Waxing &amp; Threading">Book this <span class="arr">&rarr;</span></button>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -107,8 +170,9 @@
   <div class="wrap">
     <p class="kicker">Price list</p>
     <h2>Simple, honest prices</h2>
+    <!-- PRICES: edit the amounts below to change a price. Amounts shown are starting prices. -->
     <div class="price-grid">
-      <div class="price-col">
+      <div class="price-col reveal">
         <h3>Hair</h3>
         <ul class="plist">
           <li><span>Haircut &amp; wash</span><b>&#8377;499</b></li>
@@ -124,7 +188,7 @@
           <li><span>Waxing, full arms &amp; legs</span><b>&#8377;1,199</b></li>
         </ul>
       </div>
-      <div class="price-col">
+      <div class="price-col reveal">
         <h3>Spa &amp; Nails</h3>
         <ul class="plist">
           <li><span>Body spa</span><b>&#8377;2,999</b></li>
@@ -141,7 +205,7 @@
         </ul>
       </div>
     </div>
-    <p class="price-note">Prices are for this demo. The final price depends on hair length and the service chosen, and is confirmed on WhatsApp before booking.</p>
+    <p class="price-note">Starting prices. The final price depends on hair length and the service chosen, and is confirmed on WhatsApp before booking.</p>
   </div>
 </section>
 
@@ -149,13 +213,103 @@
   <div class="wrap">
     <p class="kicker">Gallery</p>
     <h2>A glimpse of the studio</h2>
-    <div class="grid gal-grid">
-      <div class="gal g-hair"><span>Hair Studio</span></div>
-      <div class="gal g-skin"><span>Skin &amp; Glow</span></div>
-      <div class="gal g-spa"><span>Spa Rituals</span></div>
-      <div class="gal g-bridal"><span>Bridal</span></div>
-      <div class="gal g-nails"><span>Nails</span></div>
-      <div class="gal g-studio"><span>The Studio</span></div>
+    <p class="section-intro">A curated look inside the studio — from hair and skin to bridal and nails.</p>
+    <!-- PHOTOS: to add a photograph, replace a tile's placeholder with an <img> tag, for example:
+         <img src="images/gallery-hair.jpg" alt="Hair Studio" loading="lazy" decoding="async">
+         Put the <img> inside the tile and keep the <span> title. The "Photo coming soon" note
+         hides automatically once a photo is present. Tiles with a photo open in the lightbox when tapped. -->
+    <div class="gal-filters" role="group" aria-label="Filter gallery">
+      <button class="gal-filter active" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="gal-filter" type="button" data-filter="hair" aria-pressed="false">Hair</button>
+      <button class="gal-filter" type="button" data-filter="skin" aria-pressed="false">Skin &amp; Facial</button>
+      <button class="gal-filter" type="button" data-filter="nails" aria-pressed="false">Nails</button>
+      <button class="gal-filter" type="button" data-filter="bridal" aria-pressed="false">Bridal Makeup</button>
+      <button class="gal-filter" type="button" data-filter="spa" aria-pressed="false">Spa</button>
+      <button class="gal-filter" type="button" data-filter="interior" aria-pressed="false">Salon Interior</button>
+    </div>
+    <p class="gal-count" id="galCount" aria-live="polite"></p>
+    <div class="grid gal-grid" id="galGrid">
+      <div class="gal tall reveal" data-category="hair"><span>Hair Studio</span><small>Photo coming soon</small></div>
+      <div class="gal square reveal" data-category="skin"><span>Skin &amp; Glow</span><small>Photo coming soon</small></div>
+      <div class="gal portrait reveal" data-category="spa"><span>Spa Rituals</span><small>Photo coming soon</small></div>
+      <div class="gal tall reveal" data-category="bridal"><span>Bridal</span><small>Photo coming soon</small></div>
+      <div class="gal square reveal" data-category="nails"><span>Nails</span><small>Photo coming soon</small></div>
+      <div class="gal reveal" data-category="interior"><span>The Studio</span><small>Photo coming soon</small></div>
+      <div class="gal portrait reveal" data-category="hair"><span>Hair Colour</span><small>Photo coming soon</small></div>
+      <div class="gal square reveal" data-category="bridal"><span>Party Glam</span><small>Photo coming soon</small></div>
+      <div class="gal reveal" data-category="nails"><span>Nail Art</span><small>Photo coming soon</small></div>
+    </div>
+    <p class="gal-empty" id="galEmpty" hidden>Photos for this category are coming soon.</p>
+  </div>
+</section>
+
+<!-- TRANSFORMATIONS: this section stays hidden until a card holds BOTH a before and an
+     after photograph. To publish a transformation, put both <img> tags inside one card
+     (do NOT add loading="lazy" to these two images, or the section can never appear).
+     The card — and this section — then appear automatically. One photo alone is never shown. -->
+<section class="section" id="transformations" hidden>
+  <div class="wrap">
+    <p class="kicker">Transformations</p>
+    <h2>Before &amp; after</h2>
+    <p class="section-intro">Real transformations from the studio chair.</p>
+    <div class="grid transform-grid">
+      <article class="transform-card reveal">
+        <div class="ba-pair">
+          <figure class="ba before">
+            <!-- BEFORE photo: <img src="images/before-hair.jpg" alt="Before: hair transformation"> -->
+            <span class="ba-label">Before</span>
+            <span class="ba-note">Your before photo here</span>
+          </figure>
+          <figure class="ba after">
+            <!-- AFTER photo: <img src="images/after-hair.jpg" alt="After: hair transformation"> -->
+            <span class="ba-label">After</span>
+            <span class="ba-note">Your after photo here</span>
+          </figure>
+        </div>
+        <div class="transform-body">
+          <span class="t-cat">Hair</span>
+          <h3>Hair Transformation</h3>
+          <p>Cut, colour and finish — the chair-to-mirror change.</p>
+        </div>
+      </article>
+      <article class="transform-card reveal">
+        <div class="ba-pair">
+          <figure class="ba before">
+            <!-- BEFORE photo: <img src="images/before-makeup.jpg" alt="Before: makeup transformation"> -->
+            <span class="ba-label">Before</span>
+            <span class="ba-note">Your before photo here</span>
+          </figure>
+          <figure class="ba after">
+            <!-- AFTER photo: <img src="images/after-makeup.jpg" alt="After: makeup transformation"> -->
+            <span class="ba-label">After</span>
+            <span class="ba-note">Your after photo here</span>
+          </figure>
+        </div>
+        <div class="transform-body">
+          <span class="t-cat">Makeup</span>
+          <h3>Makeup Transformation</h3>
+          <p>Occasion and bridal makeup, from bare to finished.</p>
+        </div>
+      </article>
+      <article class="transform-card reveal">
+        <div class="ba-pair">
+          <figure class="ba before">
+            <!-- BEFORE photo: <img src="images/before-nails.jpg" alt="Before: nail transformation"> -->
+            <span class="ba-label">Before</span>
+            <span class="ba-note">Your before photo here</span>
+          </figure>
+          <figure class="ba after">
+            <!-- AFTER photo: <img src="images/after-nails.jpg" alt="After: nail transformation"> -->
+            <span class="ba-label">After</span>
+            <span class="ba-note">Your after photo here</span>
+          </figure>
+        </div>
+        <div class="transform-body">
+          <span class="t-cat">Nails</span>
+          <h3>Nail Transformation</h3>
+          <p>Nail care and art, before and after the appointment.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -165,7 +319,7 @@
     <p class="kicker">For your big day</p>
     <h2>Bridal packages</h2>
     <div class="grid bridal-grid">
-      <div class="bridal-card">
+      <div class="bridal-card reveal">
         <h3>Essential</h3>
         <p class="bridal-price">&#8377;14,999</p>
         <ul>
@@ -173,8 +327,9 @@
           <li>Draping &amp; styling</li>
           <li>Basic pre-bridal session</li>
         </ul>
+        <button class="btn btn-ghost bridal-book" type="button" data-service="Bridal &amp; Occasion">Book Essential</button>
       </div>
-      <div class="bridal-card featured">
+      <div class="bridal-card featured reveal">
         <p class="pop">Most popular</p>
         <h3>Signature</h3>
         <p class="bridal-price">&#8377;24,999</p>
@@ -184,8 +339,9 @@
           <li>Manicure &amp; pedicure</li>
           <li>Makeup trial session</li>
         </ul>
+        <button class="btn btn-primary bridal-book" type="button" data-service="Bridal &amp; Occasion">Book Signature</button>
       </div>
-      <div class="bridal-card">
+      <div class="bridal-card reveal">
         <h3>Royal</h3>
         <p class="bridal-price">&#8377;39,999</p>
         <ul>
@@ -194,6 +350,7 @@
           <li>Premium products</li>
           <li>Touch-up kit &amp; assistant on the day</li>
         </ul>
+        <button class="btn btn-ghost bridal-book" type="button" data-service="Bridal &amp; Occasion">Book Royal</button>
       </div>
     </div>
   </div>
@@ -201,7 +358,7 @@
 
 <section class="section" id="book">
   <div class="wrap book-in">
-    <div>
+    <div class="reveal">
       <p class="kicker">Book your visit</p>
       <h2>Reserve your chair in one message</h2>
       <p>Pick a service, pick a day, and we confirm your slot on WhatsApp. No advance needed for regular bookings.</p>
@@ -209,29 +366,100 @@
         <li>Same-day slots when available</li>
         <li>Free consultation before any treatment</li>
       </ul>
+      <p class="book-note">Your appointment is confirmed only when the salon approves it on WhatsApp.</p>
     </div>
-    <form class="book-form" id="bookForm">
-      <label>Your name
-        <input type="text" id="bkName" placeholder="Your name" required>
-      </label>
-      <label>Service
-        <select id="bkService">
-          <option>Hair Studio</option>
-          <option>Skin &amp; Facial</option>
-          <option>Spa &amp; Massage</option>
-          <option>Bridal &amp; Occasion</option>
-          <option>Nails</option>
-          <option>Waxing &amp; Threading</option>
-        </select>
-      </label>
-      <label>Preferred day
-        <input type="date" id="bkDate">
-      </label>
-      <label>Anything we should know?
-        <input type="text" id="bkNote" placeholder="Optional">
-      </label>
-      <button class="btn btn-primary" type="submit">Book on WhatsApp</button>
+    <div class="book-panel reveal">
+    <form class="book-form" id="bookForm" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="bkName">Full name *</label>
+          <input type="text" id="bkName" name="name" placeholder="Your full name" autocomplete="name" required>
+          <small class="err" id="errName"></small>
+        </div>
+        <div class="field">
+          <label for="bkPhone">Phone number *</label>
+          <input type="tel" id="bkPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel" required>
+          <small class="hint">Indian mobile number, starting with 6, 7, 8 or 9.</small>
+          <small class="err" id="errPhone"></small>
+        </div>
+        <div class="field">
+          <label for="bkEmail">Email address <span class="opt">(optional)</span></label>
+          <input type="email" id="bkEmail" name="email" placeholder="you@example.com" autocomplete="email">
+          <small class="err" id="errEmail"></small>
+        </div>
+        <div class="field">
+          <label for="bkService">Service *</label>
+          <select id="bkService" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Hair Studio</option>
+            <option>Skin &amp; Facials</option>
+            <option>Spa &amp; Massage</option>
+            <option>Bridal &amp; Occasion</option>
+            <option>Nails</option>
+            <option>Waxing &amp; Threading</option>
+            <option>Not sure yet</option>
+          </select>
+          <small class="err" id="errService"></small>
+        </div>
+        <div class="field">
+          <label for="bkTreatment">Specific treatment *</label>
+          <select id="bkTreatment" name="treatment" required disabled>
+            <option value="" disabled selected>Select a service first</option>
+          </select>
+          <small class="err" id="errTreatment"></small>
+        </div>
+        <div class="field">
+          <label for="bkSpecialist">Preferred stylist or specialist <span class="opt">(optional)</span></label>
+          <input type="text" id="bkSpecialist" name="specialist" placeholder="Any artist you prefer">
+        </div>
+        <div class="field">
+          <label for="bkDate">Preferred appointment date *</label>
+          <input type="date" id="bkDate" name="date" required>
+          <small class="hint">Format: DD/MM/YYYY. Past dates are not available.</small>
+          <small class="err" id="errDate"></small>
+        </div>
+        <div class="field">
+          <label for="bkTime">Preferred appointment time *</label>
+          <select id="bkTime" name="time" required>
+            <option value="" disabled selected>Select a time</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+            <option>5:00 PM</option>
+            <option>6:00 PM</option>
+            <option>7:00 PM</option>
+            <option>Flexible</option>
+          </select>
+          <small class="hint">Preferred slot. The salon confirms availability on WhatsApp.</small>
+          <small class="err" id="errTime"></small>
+        </div>
+        <div class="field full">
+          <label for="bkNote">Additional requirements <span class="opt">(optional)</span></label>
+          <textarea id="bkNote" name="note" rows="3" placeholder="Anything we should know? Allergies, occasion, hair length…"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" id="bookSubmit">Book Appointment</button>
+      <p class="form-note">Review your booking, then confirm it on WhatsApp. Nothing is confirmed until the salon approves it.</p>
+      <div class="form-msg" id="formMsg" role="status" hidden></div>
     </form>
+      <div class="book-confirm" id="bookConfirm" hidden tabindex="-1">
+        <span class="confirm-check">&#10003;</span>
+        <h3>Booking request ready</h3>
+        <p class="confirm-ref">Booking reference: <b id="confirmRef"></b></p>
+        <p class="confirm-intro">Please check your details, then confirm on WhatsApp. Nothing is booked until the salon approves it.</p>
+        <dl class="confirm-list" id="confirmList"></dl>
+        <div class="confirm-actions">
+          <button class="btn btn-primary" type="button" id="confirmWhatsApp">Confirm on WhatsApp</button>
+          <button class="btn btn-ghost" type="button" id="editBooking">Edit booking</button>
+        </div>
+        <button class="confirm-again" type="button" id="againBooking">Make another booking</button>
+        <p><a href="#top">Back to homepage</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -239,39 +467,44 @@
   <div class="wrap narrow">
     <p class="kicker">Good to know</p>
     <h2>Questions, answered</h2>
+    <!-- FAQ: salon-specific answers below are placeholders — confirm each policy before publishing. -->
     <div class="faq">
-      <details>
-        <summary>Do I need an appointment?</summary>
-        <p>Walk-ins are welcome when a chair is free, but booking on WhatsApp guarantees your slot.</p>
-      </details>
-      <details>
-        <summary>Do you use products for sensitive skin?</summary>
-        <p>Yes. Tell us about your skin when you book and we choose gentle, suitable products.</p>
-      </details>
-      <details>
-        <summary>Can I book bridal services in advance?</summary>
-        <p>Yes, bridal dates fill fast. Book 2&ndash;4 weeks ahead and we schedule a trial session too.</p>
-      </details>
-      <details>
-        <summary>Is there any advance payment?</summary>
-        <p>No advance for regular bookings. Bridal packages take a small advance to hold the date.</p>
-      </details>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">Do I need an appointment?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Walk-ins are welcome when a chair is free, but booking on WhatsApp guarantees your slot.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">Do you use products for sensitive skin?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes. Tell us about your skin when you book and we choose gentle, suitable products.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">Can I book bridal services in advance?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes, bridal dates fill fast. Book 2&ndash;4 weeks ahead and we schedule a trial session too.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">Is there any advance payment?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>No advance for regular bookings. Bridal dates are held with a small advance — the salon confirms the amount on WhatsApp before you pay anything.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="visit">
   <div class="wrap visit-in">
-    <div>
+    <div class="reveal">
       <p class="kicker">Visit us</p>
       <h2>Come, sit back, bloom</h2>
       <p>Open all days, 10:00 AM &ndash; 8:00 PM.</p>
       <p>Call or WhatsApp us on <a href="tel:+918292160777">+91 82921 60777</a>.</p>
-      <p class="muted">This is a demo website. The studio address and final details are added when the site goes live for a real studio.</p>
+      <!-- ADDRESS: replace this line with the real studio address when ready. -->
+      <p class="muted">Studio address will be added here.</p>
     </div>
-    <div class="love-note">
-      <p>&ldquo;Your review could be here.&rdquo;</p>
-      <small>Blush &amp; Bloom&rsquo;s first clients will be featured here — no borrowed reviews, only real ones.</small>
+    <div class="hours-card reveal">
+      <h3>Opening hours</h3>
+      <ul class="hours-list">
+        <li><span>Monday &ndash; Sunday</span><b>10:00 AM &ndash; 8:00 PM</b></li>
+      </ul>
+      <a class="btn btn-primary" data-wa href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -280,10 +513,23 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <span>Blush &amp; Bloom &mdash; Salon &amp; Spa</span>
-    <span>Demo website crafted by Tarang Digital</span>
+    <span>Open all days &middot; 10:00 AM &ndash; 8:00 PM</span>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128172;</a>
+<a class="wa-float" id="waFloat" data-wa href="https://wa.me/918292160777?text=Hi%20Blush%20%26%20Bloom%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Gallery lightbox: opens only for tiles that contain a real photograph. -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer" hidden>
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+  <figure class="lb-figure">
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
 </body>
 </html>
