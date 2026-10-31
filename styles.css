@@ -151,6 +151,8 @@ body.hero-in .wa-float{animation:floatIn .7s var(--ease) 1s both}
   text-align:center;padding:20px;overflow:hidden}
 .photo-mark{font-family:Georgia,serif;font-size:2rem;color:var(--rose)}
 .photo-text{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.photo-slot.has-photo{padding:0}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
 /* Scroll indicator */
 .scroll-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:1;
   display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;
