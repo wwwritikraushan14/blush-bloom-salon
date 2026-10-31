@@ -664,6 +664,7 @@
     nails: "Nails",
     bridal: "Bridal Makeup",
     spa: "Spa",
+    waxing: "Waxing & Threading",
     interior: "Salon Interior"
   };
   var tiles = [];
