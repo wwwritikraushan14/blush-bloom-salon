@@ -38,6 +38,8 @@ h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:30px}
 .grid{display:grid;gap:22px}
 .kicker{display:flex;align-items:center;gap:12px;color:var(--rose);font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:.75rem;margin-bottom:12px}
 .kicker::before{content:"";width:28px;height:2px;background:var(--gold);flex-shrink:0}
+/* Kicker text on blush backgrounds needs a darker rose for AA contrast (5.29:1). */
+.hero .kicker, .section.tint .kicker{color:#A63E5C}
 .muted{color:var(--muted);margin-top:12px}
 
 /* ---------- Focus (visible, gold, premium) ---------- */
@@ -205,7 +207,7 @@ html.js-reveal .reveal.in-view{opacity:1;transform:none}
   display:flex;justify-content:space-between;align-items:center;gap:12px}
 .svc .from{color:var(--rose);font-weight:800;padding:0}
 .svc-book{background:none;border:1.5px solid transparent;border-radius:999px;color:var(--rose);font-weight:700;
-  font-size:.92rem;cursor:pointer;padding:8px 14px;white-space:nowrap;
+  font-size:.92rem;cursor:pointer;padding:11px 16px;white-space:nowrap;
   transition:background-color .3s ease,color .3s ease,border-color .3s ease,transform .3s var(--ease)}
 .svc-book:hover{background:var(--rose);color:#fff;border-color:var(--rose);transform:translateY(-1px)}
 .svc-book:active{transform:scale(.96)}
@@ -372,7 +374,7 @@ html.js-reveal .reveal.in-view{opacity:1;transform:none}
   .wa-float{width:52px;height:52px;bottom:16px;right:16px}
   .wa-float svg{width:28px;height:28px}
   .scroll-hint{display:none}
-  .lb-btn{width:42px;height:42px;font-size:1.4rem}
+  .lb-btn{width:44px;height:44px;font-size:1.4rem}
 }
 
 /* ---------- Reduced motion: everything stays visible, nothing moves ---------- */
@@ -399,7 +401,7 @@ html.js-reveal .reveal.in-view{opacity:1;transform:none}
 .confirm-list dt{color:var(--muted)}
 .confirm-list dd{font-weight:700;text-align:right}
 .confirm-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.confirm-again{background:none;border:none;color:var(--rose);font-weight:700;cursor:pointer;margin-top:16px;padding:6px 0;font-size:1rem}
+.confirm-again{background:none;border:none;color:var(--rose);font-weight:700;cursor:pointer;margin-top:16px;padding:10px 0;font-size:1rem}
 .confirm-again:hover{text-decoration:underline}
 .field select:disabled{opacity:.6;cursor:not-allowed}
 .form-msg .btn{margin-top:12px}
@@ -427,7 +429,7 @@ html.js-reveal .gal:not(.in-view) img{transform:scale(1.08)}
 .gal.has-img{cursor:zoom-in}
 .gal.has-img small{display:none}
 .gal-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
-.gal-filter{background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:9px 18px;
+.gal-filter{background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:12px 20px;
   font-weight:700;font-size:.88rem;color:var(--espresso);cursor:pointer;font-family:inherit;
   transition:background-color .3s ease,color .3s ease,border-color .3s ease,transform .3s var(--ease)}
 .gal-filter:hover{border-color:var(--rose);color:var(--rose);transform:translateY(-1px)}
